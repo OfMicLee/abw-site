@@ -2,7 +2,7 @@
  * Created by MicLee on 14/11/21.
  */
 
-angular.module('phoneApp',[]).controller('PhoneListController', function($scope){
+angular.module('phone_app',[]).controller('PhoneListController', function($scope){
     $scope.phones = [
         {"name": "Nexus S",
             "snippet": "Fast just got faster with Nexus S."},

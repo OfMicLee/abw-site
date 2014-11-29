@@ -5,11 +5,40 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- The <context:component-scan...> tag will be use to activate Spring MVC annotation scanning capability
+    which allows to make use of annotations like @Controller and @RequestMapping etc. -->
     <context:component-scan base-package="com.allbuywine.site.mvc"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".html"/>
     </bean>
 
 </beans>
+
+
+
+<!--
+initialization of HelloWeb DispatcherServlet, the framework will try to load the application context from a file named [servlet-name]-servlet.xml located in the application's WebContent/WEB-INF directory. In this case our file will be HelloWeb-servlet.xml.
+
+Next, <servlet-mapping> tag indicates what URLs will be handled by the which DispatcherServlet. Here all the HTTP requests ending with .jsp will be handled by the HelloWeb DispatcherServlet.
+
+If you do not want to go with default filename as [servlet-name]-servlet.xml and default location as WebContent/WEB-INF, you can customize this file name and location by adding the servlet listener ContextLoaderListener in your web.xml file as follows:
+
+<web-app...>
+-->
+<!-- DispatcherServlet definition goes here -->
+
+<!--
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/HelloWeb-servlet.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+</web-app>
+-->

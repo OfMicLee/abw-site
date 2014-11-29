@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="registerApp" lang="zh">
+<html ng-app="register_app" lang="zh">
 <head>
     <title>User Register</title>
-    <script src="http://cdn.bootcss.com/angular.js/1.3.0/angular.min.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/1.3.0/angular.min.js" />
+    <script src="/js/module/register_app.js" />
 </head>
 <body>
     <form name="registerForm" ng-show="formshow" ng-controller="registerController">
@@ -13,23 +14,5 @@
         <div>Age:<input ng-model="user.age" type="number" ng-maxlength="3" ng-minlength="1"></div>
         <div><button ng-disabled="!registerForm.$valid" ng-click="addUser()">提交注册</button></div>
     </form>
-
-
-    <script>
-        registerApp = angular.module("registerApp",[]);
-        registerApp.controller("registerController",function($scope) {
-            $scope.resultmsg = "";
-            $scope.formshow=false;
-
-            $scope.addUser = function() {
-                //保存数据库
-                //.......
-
-                $scope.resultmsg = "Thanks," + $scope.user.username + ", we add you! Psw:" + $scope.user.password;
-
-                $scope.user = null;
-            }
-        })
-    </script>
 </body>
 </html>

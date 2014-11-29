@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="cart_app">
+    <head>
+    	<title>Your Shopping Cart－ico</title>
+        <link href="/favicon.ico" rel="SHORTCUT ICON">
+        <script src="http://cdn.bootcss.com/angular.js/1.3.0/angular.min.js"></script>
+        <script src="/js/module/cart_app.js"></script>
+    </head>
+    <body ng-controller="CartController">
+    	<h1>Your Orders:</h1>
+    	<div ng-repeat="item in items">
+    		<span>{{item.title}}</span>
+    		<input ng-model='item.number'>
+    		<span>{{item.price | currency}}</span>
+    		<span>{{item.price * item.number | currency}}</span>
+    		<button ng-click="remove($index)">Remove</button>
+    	</div>
+        <hr>
+        <div> Total:{{totalPrice() | currency}} </div>
+        <div> Discount:{{discount | currency}}</div>
+        <div> SubPrice:{{subPrice() | currency}}</div>
+    </body>
+</html>
